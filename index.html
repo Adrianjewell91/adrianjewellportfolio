@@ -42,7 +42,45 @@
 					</header>
 					<p>Thank you for visiting the personal website for Adrian Jewell! Feel free to learn
 						more about his work by exploring the links <a href="#footer" class="scrolly">below</a>.
+						<!-- Load Stripe.js on your website. -->
+						<script src="https://js.stripe.com/v3"></script>
+						<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+						<button id="checkout-button-sku_G2wUA3hxOjHqhz" role="link">
+							Checkout
+						</button>
 
+						<div id="error-message"></div>
+
+						<script>
+							(function () {
+								var stripe = Stripe('pk_test_8jqaseaoP3V7DZvocsYDqqD000wMAwIg56');
+
+								var checkoutButton = document.getElementById('checkout-button-sku_G2wUA3hxOjHqhz');
+								checkoutButton.addEventListener('click', function () {
+									// When the customer clicks on the button, redirect
+									// them to Checkout.
+									stripe.redirectToCheckout({
+										items: [{ sku: 'sku_G2wUA3hxOjHqhz', quantity: 1 }],
+
+										// Do not rely on the redirect to the successUrl for fulfilling
+										// purchases, customers may not always reach the success_url after
+										// a successful payment.
+										// Instead use one of the strategies described in
+										// https://stripe.com/docs/payments/checkout/fulfillment
+										successUrl: 'https://adrianjewell.com',
+										cancelUrl: 'https://adrianjewell.com/canceled',
+									})
+										.then(function (result) {
+											if (result.error) {
+												// If `redirectToCheckout` fails due to a browser or network
+												// error, display the localized error message to your customer.
+												var displayError = document.getElementById('error-message');
+												displayError.textContent = result.error.message;
+											}
+										});
+								});
+							})();
+						</script>
 					</p>
 				</div>
 				<div class="col-6 col-12-medium imp-medium">
@@ -375,8 +413,8 @@
 			<!-- <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li> -->
 			<li><a href="https://www.soundcloud.com/adrianjewell" class="icon alt fa-soundcloud"><span
 						class="label">Soundcloud</span></a></li>
-			<li><a href="https://www.linkedin.com/in/adrian-jewell/" class="icon alt fa-linkedin"><span
-						class="label">LinkedIn</span></a></li>
+			<!-- <li><a href="https://www.linkedin.com/in/adrian-jewell/" class="icon alt fa-linkedin"><span
+						class="label">LinkedIn</span></a></li> -->
 			<li><a href="https://github.com/adrianjewell91" class="icon alt fa-github"><span
 						class="label">GitHub</span></a></li>
 			<li><a href="mailto:adrianjewell91@gmail.com" class="icon alt fa-envelope"><span
