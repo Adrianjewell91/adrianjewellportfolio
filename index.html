@@ -25,10 +25,11 @@
 </head>
 
 <body>
-	<header>Welcome to Crown "Jewell" Automations (<a href="https://github.com/Adrianjewell91/adrianjewellportfolio/issues"><span>Contact</span></a>)
-	</header>
+<header>Welcome to Crown "Jewell" Automations (<a href="https://github.com/Adrianjewell91/adrianjewellportfolio/issues"><span>Contact</span></a>)
+</header>
 <ul>
-	<li><a href="#8/13/2021">Are the aliens here?</a></li>
+<li><a href="#8/17/2021">A call for Kubernetes debugging tools</a></li>
+<li><a href="#8/13/2021">Are the aliens here?</a></li>
 <li><a href="#8/12/2021">Response to an interview with Naval Ravikant</a></li>
 <li><a href="https://github.com/Adrianjewell91/how-to-code">How Programmers Think</a></li>
 <li><a href="https://blog.appacademy.io/state-management-observations-on-how-music-and-coding-are-so-similar/">How Music and Coding are So Similar</a></li>
@@ -43,9 +44,23 @@
 <li><a href="#7/27/2021">China and Basements</a></li>
 <li><a href="#8/6/2021">How to Play the Piano</a></li>
 </ul>
-	<p>8/13/2021
-	<a name="8/13/2021">Are the aliens here?</a></br>
-	<p>The aliens are here, says Steven Greer. Perhaps he is right, and perhaps he is not. No matter what, the government acknowledges that “something” is in the sky that they don’t know about. At first glance, it was exciting to think that maybe it’s the aliens, but on second thought, it’s just nice to know that the government doesn’t know everything. That’s a good thing, and it would be nice if it stayed that way. Those UAPs can keep flying around in the sky, mystifying the military. </p>
+<p>8/17/2021
+<a name="#8/17/2021">A call for debugging tools</a>
+<p>There are many great debugging tools out there, but there could be many more. One great one that exists already is remote debugging; this really impressed me at first sight because of how many moving parts are required to make it work. There are the two connections to the remote server (one for code syncing and one for communicating the debugging steps), and also the logic of stepping through the code itself. In fact, this example illustrates very well how to combine two good things into one great thing: that is, it combines the concept of debugging with remote syncing. Perhaps, future debugging tools will also arise from new combinations. </p>
+
+<p>One field in which better debugging tools are greatly needed is in the realm of Kubernetes. Recently, it came to my attention that the flow from external network to the server port was a winding path. First, the server needs to be exposed to the right port through the Docker container. Then, the docker container needs to map to a Server Object, and lastly, an External Ingress needs to connect to the server port. In total, that amounts to at least four, maybe five different ports, and the way that engineers do it currently is to simply read the files and remember them. Naturally, it can be a challenge keep all of this in one’s head.  </p>
+
+<p>If one of the connections is misconfigured, this will became a challenge to debug because an Ingress will only throw a 502, and that is not descriptive enough. This is because it is possible that the Ingress throws 502 for other reasons, such as a firewall, or something else related to the network. So, it would be nice if one could quickly and easily rule out port mappings.  One way would be to have a program visualize the port mappings. This would put a mental model to paper, so to speak, and really help developers see the typos.</p>
+
+<p>Some may say that remembering ports is easy, but it’s not. This is because developers often work with combinations of 8, such as 80 or 8080 or 8081, and this can get confusing. For example, an Ingress will typically expose 80 but map to a Service port that is different than 80, but that port will likely be 8080 because 8080 is a default port in web applications. At least in a visualization, it would be easy to see the differences, and maybe even color-code them. If the argument still feels tenuous, consider that it may have been challenging to follow this paragraph with all the different ports being mentioned; now consider working with them in code!</p>
+
+<p>The tool could be even better with a way to ping the application and stop along the way. In this way, the tool would resemble current debuggers’ ability to pause execution. The caller could read the details of the request, and inspect the node at which the request has stopped. This would be really interesting if it were possible, but it is unclear to me if such a thing is possible right now. But what is definitely possible right now is to misconfigure port mappings and not see it. It has happened to me, and my bet is that it has happened to others…and my use cases have only been for simple Kubernetes applications. </p>
+
+<p>It would be really great to know what other Kubernetes debugging strategies are out there, but if this one were built, it would be good. It is also an example of using combinations: visualizations are combined with debugging logic, which are combined with tracing…it’s almost as many moving parts as Kubernetes itself! Maybe a simpler place to start would be an IDA plugin that analyzes helm charts along with application configurations. This would be more proactive than debugging, which at the end of the day is the best outcome. Please feel free to share your own tips for debugging Kubernetes!</p>
+</p>
+<p>8/13/2021
+<a name="8/13/2021">Are the aliens here?</a></br>
+<p>The aliens are here, says Steven Greer. Perhaps he is right, and perhaps he is not. No matter what, the government acknowledges that “something” is in the sky that they don’t know about. At first glance, it was exciting to think that maybe it’s the aliens, but on second thought, it’s just nice to know that the government doesn’t know everything. That’s a good thing, and it would be nice if it stayed that way. Those UAPs can keep flying around in the sky, mystifying the military. </p>
 
 <p>Maybe the aliens are symbolic. After all, the whole point is that knowledge about them is unknown. So, in this sense they could be anything. They could be hallucinations of the mind, or they could really be 'astrally projected physical entities' that visit from outer space. The whole point is that we don’t know what they are, and that’s kind of exciting. It is also exciting to think that something out there is mysterious and unexplored, because most things in life are already explored, and those that aren’t explored are things that require responsibility. Owning a house, for instance, is an unexplored experience, but not a care-free one. Aliens, on the other hand, are risk-free. </p>
 
