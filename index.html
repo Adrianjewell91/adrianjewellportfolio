@@ -30,7 +30,7 @@
     <h1>Software Engineering In Practice</h1>
 
 
-June 14 2022
+<h2>June 14 2022</h2>
 There is an open question about the exact relationship between quantitative measures of capabilities and the underlying physical systems . An example of this is the ability of Google Cloud Spanner to handle trillions of rows. It is an impressive capability, no doubt, but it is not clear how the technology enables such a capability. Presumably, it is dependent on two factors. One factor is the organization of the hardware itself, and the other factor is the way in which the hardware is used (what software is written into, etc). Put these two together, and what emerges is a tool that can perform to certain specifications, hopefully to the extent that there is business value, and the tool gets used.
 
 Unfortunately, it is not always clear how the technology enables the capability. In my experience, for example, trillions of rows is enough of a quantity to acknowledge that some technology must be at work beyond what is at work in a simple query against the data stores at my job. For instance, a query for 10 million rows can sometimes take minutes, so querying trillions of rows, possibly at a much faster rate, certainly requires some better type of engineering. For me, there may be some immediate insights by looking at source code, but I have yet to do that work, and even then I may not be satisfied with my findings.
@@ -41,7 +41,7 @@ It could be either, but probably finding a shared middle ground will yield bette
 
 Another open question is what might be called the “thresholds of scale”. Is it, for example, a challenge to handle 10 customers versus 100 customers, or what about when the order of magnitude increases? So when someone says that a tech company has a fundamentally different issue when the customer base is 500 million people, is that level of scale fundamentally different than a customer of 100 million people? Maybe it is, maybe it isn’t, and maybe the problem is just horizontal scaling, or maybe the problem is rewriting the algorithm to be more performant.
 
-June 8 2022
+<h2>June 8 2022</h2>
 Basically, there was an issue with the Consumer wrapper. As a refresher, the issue is that CPU goes up and then stay elevated after the flow is complete. I discovered this by removing all logic and load testing with messages (they get consumed but trigger no logic). In doing this, I saw increase CPU and contention metrics that didn’t resolve. This led me to think that the messages were not being cleared; that there may be deadlock or no collection.
 
 I confirmed this by implementing a simple consumer and replacing some of the app with the simple consumer, in the consumer I also added some logic to refresh a sku and publish to the event stream. In testing , I saw that the problem was fixed: metrics behave correctly (CPU goes up then down after consumption), and the garbage collection metrics behave normally as well. So this was a very great discovery.
@@ -52,7 +52,7 @@ In looking into this ticket, I also learned that sometimes you have to chill out
 
 So in conclusion, this problem should have been tackled from the beginning with a different approach, that being the approach of really stripping down all the functionality and starting over, and with a clear mind.
 
-May 27 2022
+<h2>May 27 2022</h2>
 There are two major things on my mind today. This first is that i knowingly introduced tech debt into the SAC ecosystem at a very crucial level of the codebase. The second thing is that I believe I have touched upon a very central level of the challenges facing blockchain today. I will attest to both and resolve them in my mind, hopefully.
 
 Regarding the first, it is more or less okay that I did this. For one, no functionality was broken. Initially, I thought that it was, but it turned out that I was wrong. In a sense, I got lucky because that functionality was preserved not because of the way I coded but because of advancements in underlying infrastructure, so still there was bad coding on my part. Ether way, I did what I had to do I suppose for the sake of the paperwork, so it is all good. Not perfect but all good for me. Anyway, the tech debt is ready to go but will it go out? I don't think so. By the way, this functionality in question was all that important. Simply put, it was logging errors, which even if we did keep logging them, the code never did anything about them anyway, so no harm done in the end. Still, I felt bad about it and wish I had just taken the hit and finished the better implementation.
@@ -63,7 +63,7 @@ In fact, the the monopoly on languages may be part of the problem. For example, 
 
 So maybe I will look into this problem a little bit more and see what can be done about it.
 
-May 24 2022
+<h2>May 24 2022</h2>
 List of business ideas:
 
 Map pop up on web pages for addresses.
@@ -73,7 +73,7 @@ What is the difference between learning about computers and learning about compu
 
 What does it take to scale an ML algorithm? This is a question on my mind bc there seems to be a great deal of money in this area, but only sometimes. So what does it take? Beats me at this meoment. All I know is that there's some research on training models in a distributed systems, and that deploying models is different from training them. There is also the task of training models on the fly. So is ML eng the practice of deploying AND training them? I think that is true. Then there is what Glen's son said, where the model works but it doesn't scale, so the eng has to figure out how the optimize the model's time complexity.
 
-May 23 2022
+<h2>May 23 2022</h2>
 A few new questions are on my mind. The first is: What is to be gained from learning to monitor? The second is: is there a ceiling to the skill of software engineering? The third is: is there something missing in my career? The forth, but related to the third is: what is a worthwhile legacy to leave behind at the end of my career? (This line of thinking kind of devolves here a bit into questions like "What is meaningful? etc"). Yet another one is: what is to be gained from the the monitoring tickets of late? Is there a permanent skill to be gained from it, a new perspective?
 
 Some things are answered. For one, working remotely is out of the question for any considerable length of time. It just feels bad to be stuck in a box, and it's better to be at an office and have some colleagues around and collaborate with them. It feels like there's a future that involves adventure and new experiences. Even my current episodes of remote work were successful because Aysh was there and the environment was new. So going back to the office is good.
@@ -92,7 +92,7 @@ At the same time, there is more to learn about computation. This is different th
 
 Then there is the option, to simply up the salery. For instance, an ML engineer will get paid a lot more to scale ML algorithms than a full stack will get paid to build tools. Why is that? It's worth looking up.
 
-May 18 2022
+<h2>May 18 2022</h2>
 The emergence of Blockchain is provoked much thought, to say the least. Since it’s beginning, certain documentation has caught and held my interest, but others have stayed confounding even after rereads. An example of the former is the original Bitcoin white paper, which repeatedly sparked the imagination on many levels. For instance, it brought to light not only the fundamental problem of centralization, but it showed how to combine a variety of computer science topics. On top of that, it is well written, and so is a pleasure to read, and it just makes sense. Unfortunately this cannot be said about the many white papers from the thousands of blockchain startups. These works are lengthy and hard to follow, and they are numerous. Still, it may in fact be my impatience, ill-preparation, or familiarity with the wrong subset of literature, because the blockchain space is a massive industry worth billions of dollars. This particular fact is hard to ignore; there must be something there, but what exactly it is that is there is unclear. Hopefully, at least an actionable answer will become visible through some reflection.
 
 Centralization - against the machine The DREAM vs the reality (where are the blockchains hosted etc). The anonymous-ness is not there. The history of finance and economic development. Diversity of coins. The tech itself, it’s not that crazy inventive. The trading of it.
@@ -105,7 +105,7 @@ i’d say the concepts of distributed systems is some permanent knowledge, that 
 
 was learning nand to tetris permanent knowledge? maybe idk.
 
-May 3 2022
+<h2>May 3 2022</h2>
 Meetings are part of life, and this is true for software engineers as much as anyone else. Many things get discussed at meetings, and if one pays attention, then a good discussion can arise.
 
 Debating definitions are a part of meetings for engineers. Today, for example, a debate came up over the meaning of an event stream. One side of the argument was that it tracks the changes of data to a data source. The other side argued that it tracked any changes to the data, even if the values in the data didn’t change. It is a subtle difference but an important one because it determines what gets published to the event stream. At the end of the day, the answers depends on what the consumer wants, which in this case was the former and not the latter…but it could have been the latter given a proper use case. One possible use case for the latter is that client wants to know of any attempted changes to the data source, even if the changes didn’t result in any changes to the data’s values. However, this is not what the client wanted. So, in the end, the definition ended up being the former, and the meeting dispersed.
@@ -116,7 +116,7 @@ It may be apparent now that there are various reasons for debating the definitio
 
 It could have ended differently, but not likely. One way would have been to show that the additional logic would result in no difference in the quantity of events published. Another angle would have been to present a better business use case for the latter. In end, however, the best way would have been to simple get out the ticket and say the rest will be don latter, and then see if the remaining work actually got prioritized.
 
-May 4 2022
+<h2>May 4 2022</h2>
 Here is an example of looking into a new tool. Recently, project to automate namespace creation throws an error about a failed host look up. The errors look familiar; it’s been seen before, even discussed in the channels. At first glance, a simple mapping is broken, maybe it can be fixed quickly by reinstall, but that turns out to not work. Looking further, a quick inspection of the configs suggest things should be working. So what now? Probably do nothing and wait.
 
 The tight coupling is apparent. In the past, it might have been exciting to looking deeply into the issue, but today, the root cause is obvious: the tool is too tightly coupled to the cli tools. Instead, they should have relied on the existing kubernetes infrastructure and gotten it working before creating a new cluster. Once realizing this, it became obvious that this tool wasn’t going to work out, and that time was spent better elsewhere. It’s not my problem.
@@ -126,7 +126,8 @@ A year ago, however, the response would have been very different. That is: dive 
 Yet, at the same time, there is value in solving bugs because they fix the gaps in one’s knowledge. A good engineer is always growing, and that mean expanding one’s knowledge. Therefore, there is good reason to solve the bug, even if it doesn’t deserve the businesses time. Even my skip-level said one of his only regrets was not pursuing problems for their own sake, even if the value to the business wasn’t obvious. That really highlights that the eternal dilemma for the engineer is: what to work on? This is because the systems are too big for any one person, just like life…but that is a story for another time.
 
 Getting the answers to that question is perhaps why tabulating the fruits of my labor over the past few years has suddenly become of great interest. Certainly there are a host of material improvements, and in addition to that, my knowledge of computer science and software engineering has increased considerably. Additionally, my the tools for observing myself and the world around me have increased and developed. This is all good, and I am fortunate and grateful. Now, with regards to these things, some of them changes are concrete and measurable (such as net worth accumulation), and some of them remain qualitative (such as the degree of my improvement as an engineer). The hope is to make concrete, with examples, the qualitative changes.
-<h2>How Programmers Think, December 2019</h2>
+<br/>
+	<h2>How Programmers Think, December 2019</h2>
 <p>
 by Adrian Jewell (www.adrianjewell.com)
 
