@@ -31,15 +31,22 @@
 		<h2>July 7, 2022</h2>
 Regarding the median of 2 sorted arrays, it took a long time to wrap my head around this problem, but finally, it did happen. First of all, there are a lot of edge cases. For two arrays, there were maybe 6 edge cases where the output involved taking either the first or first two elements in one or both of the arrays. Actually, it was probably better to call them base cases, because they represent the simplest cases where iteration through the arrays isn’t necessary. Additionally, a base case may be a better label because they aren’t hardcoded into the optimal solution. I know this because I read some of the solutions, and they don’t hard code any of the base cases. That really annoyed me because I still haven’t figured out how to code the optimal solution, but I will eventually. 
 	</br>	</br>
-Right now, I’ve wrapped my head around the linear solution. In a nutshell, the solution is to pretend the two arrays are one array, then iterate halfway through the two arrays, and track which pointer references the actual median. Usually, it is the lower of the two numbers, but it could become the higher of the two if you run out of numbers in one of the arrays. After iterating halfway, there is some logic to calculate the median after the iteration. This logic is because the array is divided between two arrays, so you have to account for the reality of this. It breaks down roughly into this logic below. Clearly, I didn’t even understand it completely myself, which is why I took the time to write it out here. As a disclaimer, it is more of a series of questions rather than a control flow, diagram. 
+Right now, I’ve wrapped my head around the linear solution. In a nutshell, the solution is to pretend the two arrays are one array, then iterate halfway through the two arrays, and track which pointer references the actual median. Usually, it is the lower of the two numbers, but it could become the higher of the two if you run out of numbers in one of the arrays. After iterating halfway, there is some logic to calculate the median after the iteration. This logic is because the array is divided between two arrays, so you have to account for the reality of this. It breaks down roughly into this logic below. Clearly, I didn’t even understand it completely myself, which is why I took the time to write it out here. As a disclaimer, it is more of a series of questions rather than a control flow diagram. 
 	</br>	</br>
-1. Are the numbers equal to each other?
-2. Is the total count odd? 
-    1. Was the first pointer still pointing to the median?
-3. Since it is even, was the first pointer still pointing to the median?
-    1. Is that pointer at the end of an array?
-    2. Is the first pointer’s number still less than the second pointer’s numbr, and is the other pointer greater than the next number after the first pointer?
-4. Do the above question apply but with the pointers flipped?
+<ol>
+<li>Are the numbers equal to each other?</li>
+<li>Is the total count odd? </li>
+	<ol>
+    <li>Was the first pointer still pointing to the median?</li>
+		</ol>
+<li>Since it is even, was the first pointer still pointing to the median?</li>
+			<ol>
+<li> Is that pointer at the end of an array?</li>
+<li> Is the first pointer’s number still less than the second pointer’s numbr, and is the other pointer greater than the next number after the first pointer?</li>
+				</ol>
+<li>Do the above question apply but with the pointers flipped?</li>
+	</ol>
+
 	</br>	</br>
 
 https://leetcode.com/submissions/detail/739491323/
