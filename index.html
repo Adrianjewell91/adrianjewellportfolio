@@ -28,6 +28,23 @@
 </head>
 <body>
     <h1>Software Engineering In Practice, (contact: adrianjewell91 at gmail dot com)</h1>
+	
+			<h2>July 13, 2022</h2>
+	
+	Recently there was a bug in a UI that I should have triaged faster. That is, I should have noticed immediately that all the unselected fields were deactivated. In fact, it turned out to be a promising lead, and I discovered that there was in fact rendering logic that behaved as expected, but was wrong. I suppose I intuited it but didn’t articulate it, given that I looked for the rendering logic.  
+	</br>	</br>
+Frontend bugs, no matter which way you look at it, there’s going to be a trade off somewhere unless you take the time to fix all the tech debt. In this latest bug, for example, the options are between passing a variable unnecessarily and passing a function between classes (and therefore files). In the first case, there’s an extra variable, but in the later case, passing a function will impede readability, and involve more changes. Now, my preference is to make the first set of changes because it involves only adding code rather than changing it, which is better aligned with the principles of coding design, that is: open for extension but closed for modification. Even if the business logic is repetitive, it is still easier to read and no additional complexity is really introduced, because swapping methods between files is really a challenging thing to track. So hopefully this is will be a good PR.
+	</br>	</br>
+Why not start a business with all of your family members? Many businesses are family businesses, so it definitely could work. It would be good for the family financially speaking, and also relationally speaking, since everybody wants to have a happy family. The only reason to not try it would be if family members didn’t trust each other. In that case, a family business would be a horrible idea. These things considered, my prediction is that a family business is the kind of the situation where good things would be much better and bad things would be much worse, but what do I know about? Not that much. Maybe I should start by trying to help a family member. After all, my friend got his business started by helping his father with a one-off task. I could do the same thing. 
+	</br>	</br>
+Is software engineering its own field, worthy of an academic inquiry? Presumably this question should be answered before embarking on writing about it extensively. Some might say that it isn’t its own field, that it is rather simply the business of applying computer science to solve problems. But that’s quite a lengthy definition that is definitely not self explanatory. On top of that, my experience has shown me so far that the problems of software engineering are distinct from problems of computer science or business. At first glance, the major differentiator is that software is in the business of getting things to work “well enough”.
+	</br>	</br>
+I think a great idea for switching between cache and db is to use a metric that determines whether to inject the Cache vs the DbObject. So if the requests are only 1/sec use the db, but once a threshold is reached, then switch to injecting the Cache object. This is better than using a flag, and it gives the owner more control over the code.
+	</br>	</br>	
+	
+	
+	
+	
 		<h2>July 7, 2022</h2>
 Regarding the median of 2 sorted arrays, it took a long time to wrap my head around this problem, but finally, it did happen. First of all, there are a lot of edge cases. For two arrays, there were maybe 6 edge cases where the output involved taking either the first or first two elements in one or both of the arrays. Actually, it was probably better to call them base cases, because they represent the simplest cases where iteration through the arrays isn’t necessary. Additionally, a base case may be a better label because they aren’t hardcoded into the optimal solution. I know this because I read some of the solutions, and they don’t hard code any of the base cases. That really annoyed me because I still haven’t figured out how to code the optimal solution, but I will eventually. 
 	</br>	</br>
