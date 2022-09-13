@@ -28,6 +28,37 @@
 </head>
 <body>
     <h1>Software Engineering In Practice, (contact: adrianjewell91 at gmail dot com)</h1>
+				<h2>Sept 13, 2022</h2>
+	
+	It is September 13th, and not much in the way of thought has gone down on paper since the last time. But, quite a lot of code has been programmed into the 
+	computer. Most of it has been bug fixes, and none of them were easy, for various reasons, but at the end of day they got fixed. Really, it reminded me of 
+	how much work it is to debug a monolithic codebase, and by monolithic, I mean a codebase with probably hundreds of files, most of them hundreds of lines 
+	long. It's just a huge challenge, but it had to be done, those 14 bugs. It took 10 weeks and a few engineers, and at the end of it, the main sentiment was 
+	"never again," and I sincerely hope so too. 
+		</br>	</br>
+	There was also the coding of the database wrapper. As it turns out, business still wants lot of direct access to tables, about 10, so we have to give it 
+	to them, but it also turns out that not all tables are created equally. So, it's not so simple to just wrap the tables. Actually there are about three or four 
+	types, and there is slightly different logic required for CRUDing each of them. So the real lesson is: even if just a simple table wrapper, it's not that simple.
+	Probably, I should have fought harder to keep the business accessing data at the domain level, but that's the end of it. 
+	</br>	</br>
+	But come to think of, actually a lot of thought has gone down on paper in the way of documenting things. There was the documenting of the patterns among the
+	bugs (mostly bad requests), and then there was the documenting of questions about the upcoming project, and then there was the documenting of the profound amount
+	of decoupling work that still needs to be done. There is so much decoupling work it's not even funny. Probably, there is a three month's worth of decoupling 
+	just for this Domain to do it the way they want, I don't know exactly how much because I didn't read the methods that closely, but I know what they want, 
+	which is wrap it in a microservice. But then we also need to decouple the data itself, which will be more work.  To do that, we need to move the data into something
+	else. I think it will take a year to got all consumers on the interface, because there are a lot of calls to the data. So boring.
+	</br>	</br>
+	So then I tried to tell the business they don't need a brand new framework, instead they need to leverage existing software and continue the replatforming
+	effort. But the replatforming is going to take time so it won't get priority, and I can't fight them on it, or I failed. I don't really know what happened, but at the end of it, I was just in
+	a bad mood about it, so at the end of the day just build what the business wants. Fair enough, but just wait until we are 1 month in and nothing is delivered
+ 	and then we have to pivot because the macro climate changed. It happened 2x and it can happen again. But I will try to avoid it. So I don't know. I'm just gonna go back to building
+	what they tell me to build. 
+	</br>	</br>
+	And then there was the RIF: 10% of corporate. Many engineers were let go. I wish I knew more about that, but at the end of the day it just had to happen. 
+	</br>	</br>
+	So as you can see, I'm a bit disorganized. What have I learned since July? I've learned not that much, honestly: monoliths are bad, decoupling is boring, 
+	waterfall is easy, bugs are challenging. What's coming up next? Learning how to day trade I think, and no side projects. I have a lot of them, for sure, 
+	but will they make money? I don't think so. Better just stick to something I know I can do. 
 			<h2>July 18, 2022</h2>
 	</br>	</br>
 	This morning I am thinking about music. In fact, I haven’t made very much music in the past few months, with traveling and getting married and all, and yesterday night I had one of those rediscoveries about music…its expressive power and all that. It only happens occasionally, but when it happens, it usually has a significant effect on my mood. In this case, like most others, it had that effect once again. So that’s why I’m thinking about music on this morning, specifically how meaningful it is to make music and share it, and how much more there is for me to learn about music.  There is so much to learn on so many levels, not just about music for the piano, but about sound in general. For example, it would be a great learning experience to try write a program that decodes a piano piece to sheet music, but approach the task from from first principles. That is, really listen to the song, hear it in a new way, think about how an algorithm might analyze the piece and produce something readable, performable on an instrument. I should finally try it, given that my father has been reminding me of his desire for software that can do this well.
